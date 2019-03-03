@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header bg-warning">
+    Education Details
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <tr>
+        <th>Degree</th>
+        <th>Year</th>
+        <th>Per</th>
+      </tr>
+      <tr *ngFor="let education of educationList">
+        <td>{{education.degree}}</td>
+        <td>{{education.year}}</td>
+        <td>{{education.per}}</td>
+      </tr>      
+    </table>
+  </div>
+</div>
