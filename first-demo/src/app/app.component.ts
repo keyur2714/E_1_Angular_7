@@ -9,4 +9,7 @@ export class AppComponent {
   title = 'first-demo';
   firstName: string = 'keyur';
   lastName: string = 'Thakor';
+  constructor(){
+    console.log("AppComponent Loaded...");
+  }
 }
