@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-header bg-info">
+    Registration
+  </div>
+  <div class="card-body">
+    <div class="row form-group">
+      <div class="col-sm-4">        
+        <label>Country: </label>
+      </div>
+      <div class="col-sm-4">        
+        <app-my-dropdown
+          [name]="'country'"
+          [dataList]="countryList"
+        >
+        </app-my-dropdown>
+      </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">        
+          <label>State: </label>
+        </div>
+        <div class="col-sm-4">        
+          <app-my-dropdown
+            [name]="'state'"
+            [dataList]="statesList"
+          >
+          </app-my-dropdown>
+        </div>
+      </div>
+  </div>
+</div>
