@@ -27,20 +27,20 @@ export class RegistrationComponent implements OnInit {
 
   statesList = [
     {
-      "id":27,
-      "code":"MH",
-      "desc":"Maharashtra"
+      "id": 27,
+      "code": "MH",
+      "desc": "Maharashtra"
     },
     {
-      "id":21,
-      "code":"GJ",
-      "desc":"Gujrat"
+      "id": 21,
+      "code": "GJ",
+      "desc": "Gujrat"
     },
     {
-      "id":47,
-      "code":"RJ",
-      "desc":"Rajasthan"
-    }    
+      "id": 47,
+      "code": "RJ",
+      "desc": "Rajasthan"
+    }
   ]
 
   constructor() { }

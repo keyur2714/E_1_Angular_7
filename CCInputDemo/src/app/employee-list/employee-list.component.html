@@ -1,0 +1,23 @@
+<!-- <table class="table table-striped bg-dark text-white">
+  <tr>
+     <th>EmpId</th> 
+     <th>Name</th> 
+     <th>Dept</th> 
+     <th>Salary</th> 
+  </tr>
+  <tr *ngFor="let emp of empList">
+    <td>{{emp.empId}}</td>
+    <td>{{emp.name}}</td>
+    <td>{{emp.dept}}</td>
+    <td>{{emp.salary}}</td>
+  </tr>
+</table> -->
+
+<app-my-grid 
+  [dataList]="empList"
+  [headerList]="headerList"
+  [propertyList]="propertyList"
+  [bgColor]="'danger'"
+>
+
+</app-my-grid>

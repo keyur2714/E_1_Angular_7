@@ -1,0 +1,10 @@
+<table class="table table-striped bg-{{bgColorStyle}} text-white">
+  <tr>
+     <th *ngFor="let header of headerColumnList">{{header}}</th>      
+  </tr>
+  <tr *ngFor="let data of dataList">
+    <td *ngFor="let property of propertyNameList">
+      {{data[property]}}
+    </td>    
+  </tr>
+</table>
