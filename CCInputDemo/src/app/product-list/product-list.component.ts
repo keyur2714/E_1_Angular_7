@@ -19,8 +19,10 @@ export class ProductListComponent implements OnInit {
     product1.productId = 10;
     product1.code = 'MMO';
     product1.name = 'Mobile';
-    product1.desc = 'MI Note 4 Mobile Phones';
+    product1.desc = 'MI Note 4 Mobile Phones aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
     product1.price = 11000;
+
+    product1.desc = product1.desc + 'MI Note 4 Mobile Phones bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
 
     let product2 = new Product();
     product2.productId = 20;

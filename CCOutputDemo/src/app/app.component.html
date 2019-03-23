@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col alert alert-info">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <app-message [msg]="myMessage" (getFormattedMsg)="getMessage($event)">        
+      </app-message>
+    </div>
+    <div class="col-sm-6 alert alert-danger">
+      {{formattedMsg}}
+    </div>
+  </div>
+  <app-stroperations 
+    (getOriginalStr)="getOriginalStr($event)"
+    (getReverseStr)="getReverse($event)"
+  >
+  </app-stroperations>
+  <div class="row alert alert-warning">
+    <div class="col-sm-4">
+      Original String is : {{originalString}}
+    </div>
+    <div class="col-sm-4">
+        Reverse String is : {{reverseString}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-message [msg]="message"></app-message>
+    </div>
+  </div>
+</div>
