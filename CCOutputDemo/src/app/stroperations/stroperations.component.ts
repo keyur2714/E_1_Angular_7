@@ -20,6 +20,7 @@ export class StroperationsComponent implements OnInit {
   }
 
   revStr(str:string):void{
+    console.log('1111111');
     this.rev = str.split("").reverse().join('');    
     this.getOriginalStr.emit(str);
     this.getRevStr.emit(this.rev);

@@ -19,9 +19,11 @@ export class AppComponent {
   }
 
   getOriginalStr(oStr):void{
+    console.log('22222222');
     this.originalString = oStr;
   }
   getReverse(rStr):void{
+    console.log('3333333333');
     this.reverseString = rStr;
     if(this.originalString === this.reverseString){
       this.message = 'String is Palindrom';
