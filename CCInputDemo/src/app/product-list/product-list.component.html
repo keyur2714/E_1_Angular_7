@@ -19,6 +19,9 @@
   [headerList]="headerList"
   [propertyList]="propertyList"
   [bgColor]="'success'"
+  (getSelectedRow)="getRow($event)"
 >
 
 </app-my-grid>
+
+Selected Product is : {{selectedProduct.desc}} ,Price:  {{selectedProduct.price}} 

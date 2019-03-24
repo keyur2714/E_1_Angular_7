@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-my-grid',
@@ -19,9 +20,15 @@ export class MyGridComponent implements OnInit {
   @Input("bgColor")
   bgColorStyle: string = 'dark';
 
+  @Output()
+  getSelectedRow: any = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  getRow(data: any):void{
+    this.getSelectedRow.emit(data);
+  }
 }

@@ -11,6 +11,7 @@ export class ProductListComponent implements OnInit {
   productList: Product[] = [];
   headerList: string[] = ["Name","Desc","Price"];
   propertyList: string[] = ["name","desc","price"];
+  selectedProduct : Product = new Product();
 
   constructor() { }
 
@@ -43,4 +44,7 @@ export class ProductListComponent implements OnInit {
     this.productList.push(product3);
   }
 
+  getRow(data):void{
+    this.selectedProduct = data;
+  } 
 }

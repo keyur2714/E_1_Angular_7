@@ -9,8 +9,10 @@
       </div>
       <div class="col-sm-4">        
         <app-my-dropdown
+          [selectedValue]="countryList[0]"
           [name]="'country'"
           [dataList]="countryList"
+          (getSelectedValue)="getSelectedCountry($event)"
         >
         </app-my-dropdown>
       </div>
@@ -21,11 +23,15 @@
         </div>
         <div class="col-sm-4">        
           <app-my-dropdown
+            [selectedValue]="statesList[1]"
             [name]="'state'"
             [dataList]="statesList"
+            (getSelectedValue)="getSelectedState($event)"
           >
           </app-my-dropdown>
         </div>
       </div>
   </div>
 </div>
+
+{{registration.countryName}} , {{registration.stateName}}

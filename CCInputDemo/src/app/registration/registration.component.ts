@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Registration } from './registration.model';
 
 @Component({
   selector: 'app-registration',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  registration : Registration = new Registration();
 
   countryList = [
     {
@@ -48,4 +51,11 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
+  getSelectedCountry(country):void{
+    this.registration.countryName = country.desc;
+  }
+
+  getSelectedState(state):void{
+    this.registration.stateName = state.desc;
+  }
 }

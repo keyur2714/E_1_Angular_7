@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'CCInputDemo';
 
+  cricketerName : string = 'Sachin Tendulkar';
+
   myMessage: string = 'How Are You?';
 
   messageList: string [] = [

@@ -10,6 +10,8 @@ export class EmployeeListComponent implements OnInit {
 
   empList: Employee[] = [];
 
+  selectedEmployee : Employee = new Employee();
+
   headerList : string[] = ["EmpId","Name","Dept","Salary"];
   propertyList : string[] = ["empId","name","dept","salary"];
   
@@ -26,4 +28,7 @@ export class EmployeeListComponent implements OnInit {
     this.empList.push(emp3);
   }
 
+  getRow(data):void{
+    this.selectedEmployee = data;
+  }
 }

@@ -18,6 +18,10 @@
   [headerList]="headerList"
   [propertyList]="propertyList"
   [bgColor]="'danger'"
+  (getSelectedRow)="getRow($event)"
 >
-
 </app-my-grid>
+
+<p>
+  Selected Employee is : {{selectedEmployee.name}} , {{selectedEmployee.dept}}
+</p>

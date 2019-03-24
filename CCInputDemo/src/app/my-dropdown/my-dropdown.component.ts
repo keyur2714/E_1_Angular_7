@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-my-dropdown',
@@ -8,14 +8,24 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MyDropdownComponent implements OnInit {
 
   @Input()
+  selectedValue: any = '-1';
+
+  @Input()
   dataList: any[] = [];
 
   @Input()
   name: string;
+
+
+  @Output()
+  getSelectedValue : any = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  setSelectedValue():void{
+    this.getSelectedValue.emit(this.selectedValue);
+  }
 }

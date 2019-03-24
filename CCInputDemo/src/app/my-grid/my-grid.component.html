@@ -2,7 +2,7 @@
   <tr>
      <th *ngFor="let header of headerColumnList">{{header}}</th>      
   </tr>
-  <tr *ngFor="let data of dataList">
+  <tr *ngFor="let data of dataList" (click)="getRow(data)">
     <td *ngFor="let property of propertyNameList">
       {{data[property]}}
     </td>    
