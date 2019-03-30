@@ -19,7 +19,7 @@
           <app-message></app-message>
       </div>
       <div class="col-sm-6">
-          <app-message [message]="'Hello'" [messageType]="'danger'"></app-message>
+          <app-message [message]="'Hello'" [messageType]="'danger'">Hello</app-message>
       </div>
     </div> 
     <div class="row">
@@ -27,12 +27,14 @@
             <app-message [message]="'Good Morning...!'" [messageType]="'success'"></app-message>
         </div>
         <div class="col-sm-6">
-            <app-message [message]="myMessage" [messageType]="'warning'"></app-message>
+            <app-message [message]="myMessage" [messageType]="'warning'">{{myMessage}}</app-message>
         </div>
     </div> 
     <div class="row">
       <div class="col-sm-8">
-        <app-message *ngFor="let msg of messageList" [message]="msg" [messageType]="'secondary'"></app-message>
+        <app-message *ngFor="let msg of messageList" [message]="msg" [messageType]="'secondary'">
+          {{msg}}-{{msg}}
+        </app-message>
       </div>
     </div>
     <div class="row">
