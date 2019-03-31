@@ -1,8 +1,29 @@
-<h1>{{title}}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1 #msg>
+        Hello Radhe krishna...!
+      </h1>      
+    </div>
+    <div class="col">
+      Enter Name: <input type=text #name />
+      <button (click)="display()">Submit</button>
+    </div>
+  </div>
+  <app-calc></app-calc>
+  <div class="row"> 
+    <div class="col-sm-6">
+      <button (click)="formattedResult()" class="btn btn-warning">Display Formatted Result</button>
+    </div>
+    <div class="col-sm-6" #fr>      
+    </div>
+  </div>
+</div>
 
-<h1 #msg>
-  Hello Radhe krishna...!
-</h1>
 
-Enter Name: <input type=text #name />
-<button (click)="display()">Submit</button>
+

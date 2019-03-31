@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { CalcComponent } from './calc/calc.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,12 @@ export class AppComponent implements OnInit,AfterViewInit{
   @ViewChild("name")
   name: ElementRef;
 
+  @ViewChild("fr")
+  formattedRes: ElementRef;
+
+  @ViewChild(CalcComponent)
+  caclComponent: CalcComponent;
+
   ngOnInit(){    
   }
 
@@ -26,5 +33,9 @@ export class AppComponent implements OnInit,AfterViewInit{
   display(){
     console.log(this.name.nativeElement.value);
     this.name.nativeElement.value = '';
+  }
+
+  formattedResult():void{
+    this.formattedRes = this.caclComponent.getFormattedResult();
   }
 }

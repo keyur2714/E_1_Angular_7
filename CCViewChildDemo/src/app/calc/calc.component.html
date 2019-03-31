@@ -1,0 +1,29 @@
+<div class="row form-group">
+  <div class="col-sm-2">
+    <label>Number 1: </label>    
+  </div>
+  <div class="col-sm-4">
+    <input type="text" #num1 class="form-control" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-sm-2">
+    <label>Number 2: </label>    
+  </div>
+  <div class="col-sm-4">
+    <input type="text" #num2 class="form-control" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-sm-6">
+    <button (click)="add()" class="btn btn-info m-1">+</button>
+    <button (click)="sub()" class="btn btn-info m-1">-</button>
+    <button (click)="div()" class="btn btn-info m-1">/</button>
+    <button (click)="mul()" class="btn btn-info m-1">*</button>
+  </div>  
+</div>
+<div class="row">
+  <div class="col" #res>
+    Result is: {{result}}
+  </div>
+</div>
