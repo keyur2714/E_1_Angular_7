@@ -1,0 +1,15 @@
+<h1 appMyColor [fontSize]="fontSize" #m1> 
+  {{title}}
+</h1>
+
+<h2 appMyColor [color]="'green'" #m2>
+    Keyur
+</h2>
+ 
+
+<select name=select (change)="changeColor(select.value)" #select>
+  <option value=-1>-:Select:-</option>
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+</select>
