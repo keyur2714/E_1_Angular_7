@@ -1,0 +1,69 @@
+	Angular - 7
+
+	Setup
+	CLI Basic Commands
+	First Demo Application 
+	add bootstrap in demo application
+	basic idea of bootstrap
+	Flow of Execution with angular.json
+	create component
+	play with component
+	inbuilt dirctive / ngIf / ngFor / ngClass
+	create component without html
+	create model class
+	create Array of string/numbers
+	create Array of Objects
+	simple application of CRUD with in memory/array
+	Data Binding
+		- one way
+		- two way
+	2. Component Communications
+		- @Input() : Parent to child / property
+		- @Output() : Child to Parent / Events
+		- @ViewChild() : Ref of Elements/coponent selectors
+	3. Custom Directives
+		- Simple Directive
+		- Attribute Directive
+		- Structural Directive
+	4. Forms
+		- Template Driven Forms
+		- Reactive  Forms
+	5. Observables & RX JS Basic Operators
+		- interval()
+		- of()
+		- map()
+		- catchError()
+		- Subscription()
+		- Pipe()
+	6. DI (Dependency Injection) & Services
+	7. JSON Server - for create dummy web services
+		- How to use POST MAN
+	7. Http Client Module (CRUD) - 
+		- Get
+		- Post
+		- Put
+		- Delete
+	8. Session Storage/Local Storage & Cookie Understanding
+	9. JWT Introduction 
+	10. Interceptor in HttpClientModule with Login Authentication
+	11.Router - For Navigation	
+	12.Route Guards - for Authorizations 
+	13. Custom Modules and it's communications
+	14. Lazy Loading & Eager Loading in Modules
+	15. Pipes - for Data Transform. it's like Filter
+		- Inbuilt Pipes
+		- Custom Pipes
+	16. Angular Material
+		- setup	
+		- how to use basic component
+		- DATA Table / Model Dialog / Buttons		
+	17. Animations		
+		- custom Animations
+		- component Animations
+	18. Unit Testing with some Testcases
+		- Jasmin
+		- Karma
+	19. E2E Testing Undrestanding
+	20. Basic Usecase Project with Forms Module/Http Client Module/Router and Login authentication & authorization 
+	21. Deployments with some Local Server like Tomcat/WAMP
+			
