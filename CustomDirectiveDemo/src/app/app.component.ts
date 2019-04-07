@@ -10,6 +10,8 @@ export class AppComponent {
   title = 'CustomDirectiveDemo';
   fontSize :string = '25px';
 
+  loopCounter = 10;
+
   @ViewChild("m1")
   m1: ElementRef;
 

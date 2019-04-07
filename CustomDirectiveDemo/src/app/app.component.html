@@ -2,14 +2,28 @@
   {{title}}
 </h1>
 
-<h2 appMyColor [color]="'green'" #m2>
+<h2 appMyColor [color]="'green'" #m2 *appMyIf="true">
     Keyur
 </h2>
- 
 
-<select name=select (change)="changeColor(select.value)" #select>
+<select name=select (change)="changeColor(select.value)" #select *appMyLoop="5">
   <option value=-1>-:Select:-</option>
   <option value="red">Red</option>
   <option value="green">Green</option>
   <option value="blue">Blue</option>
 </select>
+
+<li *appMyLoop="loopCounter">
+  Radhe Krishna...!
+</li>
+
+<div *ngIf="false;then ifBlock;else elseBlock">
+</div>
+
+<ng-template #ifBlock [ngIf]="true">
+  Sachin Tendulakar
+</ng-template>
+
+<ng-template #elseBlock [appMyLoop]="3">
+  Dhoni
+</ng-template>
