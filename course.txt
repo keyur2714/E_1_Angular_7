@@ -1,6 +1,7 @@
 	Angular - 7
 
 	Setup
+	Git Rpository / Basic Git Commands
 	CLI Basic Commands
 	First Demo Application 
 	add bootstrap in demo application
@@ -26,7 +27,7 @@
 		- Attribute Directive
 		- Structural Directive
 	4. Forms
-		- Template Driven Forms
+		- Template Driven Forms 
 		- Reactive  Forms
 	5. Observables & RX JS Basic Operators
 		- interval()

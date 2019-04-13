@@ -1,0 +1,48 @@
+<form #frm=ngForm (ngSubmit)="save(frm)">
+  <div class="row form-group">
+    <div class="col-sm-4">
+      <label>Name</label>
+    </div>
+    <div class="col-sm-6">
+        <input type=text class="form-control" name=name ngModel required />
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-4">
+        <label>Email</label>
+      </div>
+      <div class="col-sm-6">
+          <input type=text class="form-control" name=email ngModel required email />
+      </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-4">
+        <label>Mobile Number</label>
+      </div>
+      <div class="col-sm-6">
+          <input type=text class="form-control" name=mobileNo ngModel required />
+      </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-4">
+        <label>Course</label>
+      </div>
+      <div class="col-sm-6">
+          <select name=course class="form-control" ngModel>
+            <option value="-1">-:Select Course:-</option>
+            <option *ngFor="let course of courseList" [ngValue]="course">
+              {{course.courseName}}
+            </option>
+          </select>
+      </div>
+  </div>  
+  <div class="col-sm-4">
+      <button type="submit" [disabled]="frm.invalid" class="btn btn-info">Submit</button>
+  </div> 
+</form>
+<div *ngIf="isInquiryCreated" class="row">
+  <div class="col">
+    {{newInquiry.name}} | {{newInquiry.email}} | {{newInquiry.mobileNo}} | {{newInquiry.course.courseName }} ||  {{newInquiry.course.fees }} ||  {{newInquiry.course.trainerName }}
+
+  </div>  
+</div>
