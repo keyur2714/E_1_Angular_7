@@ -34,9 +34,18 @@ export class InquiryEntryComponent implements OnInit {
     course3.fees = 7000;
     course3.trainerName = "Jay";
 
+    this.newInquiry.course = course2;
+
     this.courseList.push(course1);
     this.courseList.push(course2);
     this.courseList.push(course3);
+  }
+
+  saveInquiry(inquiryEntryForm):void{
+    console.log(inquiryEntryForm);
+    if(inquiryEntryForm.valid){
+      this.isInquiryCreated = true;
+    }
   }
 
   save(inquiryEntry):void{

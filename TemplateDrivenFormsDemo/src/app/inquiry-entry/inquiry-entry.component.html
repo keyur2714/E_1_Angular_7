@@ -1,34 +1,46 @@
-<form #frm=ngForm (ngSubmit)="save(frm)">
+<form #frm=ngForm (ngSubmit)="saveInquiry(frm)">
   <div class="row form-group">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <label>Name</label>
     </div>
-    <div class="col-sm-6">
-        <input type=text class="form-control" name=name ngModel required />
+    <div class="col-sm-6">  
+        <input type=text class="form-control" name=name [(ngModel)]="newInquiry.name" required #name=ngModel />
+    </div>
+    <div class="col-sm-3" *ngIf="name.invalid && name.touched">
+      Name is Required Field.
     </div>
   </div>
   <div class="row form-group">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <label>Email</label>
       </div>
       <div class="col-sm-6">
-          <input type=text class="form-control" name=email ngModel required email />
+          <input type=text class="form-control" name="email" [(ngModel)]="newInquiry.email" required email #email=ngModel/>
+      </div>
+      <div class="col-sm-3" *ngIf="email.invalid && email.touched && email.errors">
+        <span *ngIf="email.errors['required']">Email is Required Field.</span>
+        <span *ngIf="email.errors['email']">Email Invalid.</span>
       </div>
   </div>
   <div class="row form-group">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <label>Mobile Number</label>
       </div>
       <div class="col-sm-6">
-          <input type=text class="form-control" name=mobileNo ngModel required />
+          <input type=text class="form-control" name=mobileNo [(ngModel)]="newInquiry.mobileNo" required minlength="10" maxlength="10" #mobileNo=ngModel pattern="^[0-9]+$"/>
       </div>
+      <div class="col-sm-3" *ngIf="mobileNo.invalid && mobileNo.touched && mobileNo.errors">
+          <span *ngIf="mobileNo.errors['required']">Mobile Number is Required Field.</span>
+          <span *ngIf="mobileNo.errors['minlength']">Mobile Number is Min 10 Char.</span>
+          <span *ngIf="mobileNo.errors['pattern']">Mobile Number only in Digits.</span>
+      </div>      
   </div>
   <div class="row form-group">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <label>Course</label>
       </div>
       <div class="col-sm-6">
-          <select name=course class="form-control" ngModel>
+          <select name=course class="form-control" [(ngModel)]="newInquiry.course">
             <option value="-1">-:Select Course:-</option>
             <option *ngFor="let course of courseList" [ngValue]="course">
               {{course.courseName}}
@@ -37,12 +49,11 @@
       </div>
   </div>  
   <div class="col-sm-4">
-      <button type="submit" [disabled]="frm.invalid" class="btn btn-info">Submit</button>
+      <button type="submit"  [disabled]="frm.invalid" class="btn btn-info">Submit</button>
   </div> 
 </form>
-<div *ngIf="isInquiryCreated" class="row">
+<div *ngIf="isInquiryCreated && frm.valid" class="row">
   <div class="col">
     {{newInquiry.name}} | {{newInquiry.email}} | {{newInquiry.mobileNo}} | {{newInquiry.course.courseName }} ||  {{newInquiry.course.fees }} ||  {{newInquiry.course.trainerName }}
-
   </div>  
 </div>
