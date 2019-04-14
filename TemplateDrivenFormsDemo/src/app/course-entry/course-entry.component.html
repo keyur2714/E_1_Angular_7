@@ -1,0 +1,33 @@
+<form [formGroup]="courseEntryForm" (ngSubmit)="saveCourse()">
+    <div class="row form-group">
+      <div class="col-sm-3">
+        <label>Course Name</label>
+      </div>
+      <div class="col-sm-6">  
+          <input type=text class="form-control" name=courseName formControlName="courseName" />
+      </div>
+      <div class="col-sm-3" *ngIf="courseEntryForm.get('courseName').invalid && courseEntryForm.get('courseName').touched">
+          CourseName is Required Field.
+      </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-3">
+          <label>Fees</label>
+        </div>
+        <div class="col-sm-6">
+            <input type=text class="form-control" name=fees formControlName="fees" />
+        </div>
+        <div class="col-sm-3" *ngIf="courseEntryForm.get('fees').invalid && courseEntryForm.get('fees').touched && courseEntryForm.get('fees').errors">
+            <span *ngIf="courseEntryForm.get('fees').errors['required']">Fees is Required Field.</span>
+            <span *ngIf="courseEntryForm.get('fees').errors['pattern']">Fees only in Digits.</span>
+        </div>      
+    </div>
+    <div class="col-sm-4">
+        <button type="submit"  [disabled]="courseEntryForm.invalid" class="btn btn-info">Submit</button>
+    </div> 
+  </form>
+  <div *ngIf="isCourseCreated && courseEntryForm.valid" class="row">
+    <div class="col">
+      {{newCourse.courseName}} | {{newCourse.fees}} 
+    </div>  
+  </div>
