@@ -1,10 +1,10 @@
 <form [formGroup]="courseEntryForm" (ngSubmit)="saveCourse()">
     <div class="row form-group">
       <div class="col-sm-3">
-        <label>Course Name</label>
+        <label>Course Name <sup>*</sup></label>
       </div>
       <div class="col-sm-6">  
-          <input type=text class="form-control" name=courseName formControlName="courseName" />
+          <input type=text class="form-control" name=courseName formControlName="courseName" (blur)="checkFeesValidation()" />
       </div>
       <div class="col-sm-3" *ngIf="courseEntryForm.get('courseName').invalid && courseEntryForm.get('courseName').touched">
           CourseName is Required Field.
@@ -12,15 +12,29 @@
     </div>
     <div class="row form-group">
         <div class="col-sm-3">
-          <label>Fees</label>
+          <label>Fees <sup>*</sup></label>
         </div>
         <div class="col-sm-6">
             <input type=text class="form-control" name=fees formControlName="fees" />
+            {{courseEntryForm.get('fees').invalid}}
         </div>
         <div class="col-sm-3" *ngIf="courseEntryForm.get('fees').invalid && courseEntryForm.get('fees').touched && courseEntryForm.get('fees').errors">
             <span *ngIf="courseEntryForm.get('fees').errors['required']">Fees is Required Field.</span>
             <span *ngIf="courseEntryForm.get('fees').errors['pattern']">Fees only in Digits.</span>
         </div>      
+    </div>
+    <div formArrayName="trainersName">
+      <div class="row form-group" *ngFor="let trainerControl of courseEntryForm.get('trainersName').controls;let i=index">
+        <div class="col-sm-3">
+          <label>Trainer Name: </label>
+        </div>
+        <div class="col-sm-6">
+          <input type=text class="form-control" [formControlName]="i" />
+        </div>      
+        <div class="col-sm-3">
+          <button (click)="addNewTrainer()" type="button" class="btn btn-info">Add More</button>
+        </div>
+      </div>
     </div>
     <div class="col-sm-4">
         <button type="submit"  [disabled]="courseEntryForm.invalid" class="btn btn-info">Submit</button>
@@ -28,6 +42,18 @@
   </form>
   <div *ngIf="isCourseCreated && courseEntryForm.valid" class="row">
     <div class="col">
-      {{newCourse.courseName}} | {{newCourse.fees}} 
+      <table class="table table-bordered bg-warning">
+        <tr>
+          <th>Course Name</th>
+          <th>Fees</th>
+          <th>Trainer Name</th>
+        </tr>
+        <tr *ngFor="let courseTrainerDetail of courseTrainerList">
+          <td>{{courseTrainerDetail.courseName}}</td>
+          <td>{{courseTrainerDetail.fees}}</td>
+          <td>{{courseTrainerDetail.trainerName}}</td>
+        </tr>
+      </table>
+      
     </div>  
   </div>
