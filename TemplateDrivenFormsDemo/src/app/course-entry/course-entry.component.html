@@ -15,8 +15,7 @@
           <label>Fees <sup>*</sup></label>
         </div>
         <div class="col-sm-6">
-            <input type=text class="form-control" name=fees formControlName="fees" />
-            {{courseEntryForm.get('fees').invalid}}
+            <input type=text class="form-control" name=fees formControlName="fees" />            
         </div>
         <div class="col-sm-3" *ngIf="courseEntryForm.get('fees').invalid && courseEntryForm.get('fees').touched && courseEntryForm.get('fees').errors">
             <span *ngIf="courseEntryForm.get('fees').errors['required']">Fees is Required Field.</span>
