@@ -1,12 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, interval, Subscription, Subject, from, of, range, pipe  } from 'rxjs';
 import { map, filter, scan, tap } from 'rxjs/operators';
+import { StudentService } from './services/student.service';
+import { Student } from './services/student.model';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ StudentService ]
 })
 export class AppComponent implements OnInit,OnDestroy{
   title = 'ObservablesDemo';
@@ -18,10 +21,28 @@ export class AppComponent implements OnInit,OnDestroy{
   subject2 = new Subject<string>();
   nubmerObservables = interval(1000);
 
+  studentList : Student[] = [];
+
   source$ = of("keyur","denish","vinit","ami","darsh","sachin","viru");
 
-  ngOnInit(){
+  constructor(private studentService : StudentService){}
 
+  ngOnInit(){
+      //this.studentList = this.studentService.getStudentList();
+      this.studentService.getStudentListObservable().subscribe(
+        (data: Student[])=>{
+          this.studentList = data;
+        }
+      )
+      console.log("========="+this.source$);
+      this.source$.subscribe(
+        (data:string)=>{
+          console.log("***"+data);
+        },
+        (error)=>{
+
+        }
+      )
       const calculationFun = pipe(
         filter((n: number) => n % 2 === 1),
         map((n: number) => n + 10)
@@ -71,7 +92,8 @@ export class AppComponent implements OnInit,OnDestroy{
               err => console.error(err),
               () => console.log("Complete")
         ),
-        filter(name => name.startsWith("d"))
+        filter(name => name.startsWith("d")),
+        map(name => name.toUpperCase())
        ).subscribe(el => console.log("D names: "+ el)); 
   }
 

@@ -9,4 +9,18 @@
       Generated No is : {{newNumber}}
     </div>
   </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <tr>
+          <th>Roll No</th>
+          <th>Name</th>
+        </tr>
+        <tr *ngFor="let student of studentList">
+          <td>{{student.rollNo}}</td>
+          <td>{{student.name}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
