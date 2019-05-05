@@ -5,17 +5,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <table class="table bordered">
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-        </tr>
-        <tr *ngFor="let student of studentList">
-          <td>{{student.id}}</td>
-          <td>{{student.name}}</td>
-        </tr>
-      </table>
+    <div class="col-8">
+      <app-student-list></app-student-list>
     </div>
   </div>
 </div>

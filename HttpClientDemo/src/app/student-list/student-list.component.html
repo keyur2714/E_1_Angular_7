@@ -1,0 +1,49 @@
+<div *ngIf="statusCode === 201" class="alert alert-success">
+  Student Saved Successfully
+</div>
+<div *ngIf="statusCode === 203" class="alert alert-success">
+    Student Deleted Successfully
+</div>
+<div *ngIf="statusCode === 204" class="alert alert-success">
+    Student Updated Successfully
+</div>
+<form #f=ngForm (ngSubmit)="save(f)">
+  <table class="table">
+    <tr>
+      <td>Id: </td>
+      <td><input type="text" name=id #id=ngModel [(ngModel)]="newStudent.id" required class="form-control" /></td>
+      <td *ngIf="id.invalid && id.touched">
+        Id is Mandatory Field.
+      </td>
+    </tr>
+    <tr>
+      <td>Name: </td>
+      <td><input type="text" name=name #name=ngModel [(ngModel)]="newStudent.name" required class="form-control" /></td>
+      <td *ngIf="name.invalid && name.touched">
+        Name is Mandatory Field.
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <button class="btn btn-info" [disabled]="f.invalid" *ngIf="! isUpdate">Save</button>
+        <button class="btn btn-info" [disabled]="f.invalid" type="button" (click)="update()" *ngIf="isUpdate">Update</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<table class="gridtable" >
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let student of studentList">
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>
+      <button class="btn btn-info m-1" type="button" (click)="edit(student.id)">Edit</button>
+      <button class="btn btn-danger m-1" type="button" (click)="delete(student.id)">Delete</button>
+    </td>
+  </tr>
+</table>
