@@ -1,0 +1,19 @@
+<button (click)="addProduct()" class="btn btn-info">Add</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Code</th>
+            <th>Desc</th>
+            <th>Unit Price</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productList">
+            <td><a [routerLink]="['/productDetail',product.id]">{{product.id}}</a></td>
+            <td>{{product.code}}</td>
+            <td>{{product.desc}}</td>
+            <td>{{product.unitPrice}}</td>
+        </tr>
+    </tbody>
+</table>
