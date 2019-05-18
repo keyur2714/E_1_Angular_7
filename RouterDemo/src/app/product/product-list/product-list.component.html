@@ -6,6 +6,7 @@
             <th>Code</th>
             <th>Desc</th>
             <th>Unit Price</th>            
+            <th>Detail</th>
         </tr>
     </thead>
     <tbody>
@@ -14,6 +15,8 @@
             <td>{{product.code}}</td>
             <td>{{product.desc}}</td>
             <td>{{product.unitPrice}}</td>
+            <td><a [routerLink]="['detail',product.id]">{{product.id}}</a></td>
         </tr>
     </tbody>
 </table>
+<router-outlet></router-outlet>

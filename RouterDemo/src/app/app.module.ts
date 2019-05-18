@@ -11,6 +11,10 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductService } from './product/services/product.service';
 import { ProductEntryComponent } from './product/product-entry/product-entry.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthenticationService } from './auth/authentication.service';
+import { AuthGuardService } from './auth/services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -21,14 +25,20 @@ import { ProductEntryComponent } from './product/product-entry/product-entry.com
     AboutusComponent,
     ContactusComponent,
     ProductDetailComponent,
-    ProductEntryComponent
+    ProductEntryComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ProductService],
+  providers: [
+    ProductService,
+    AuthGuardService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

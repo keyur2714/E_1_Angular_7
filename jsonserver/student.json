@@ -9,7 +9,8 @@
       "gender": "male",
       "email": "keyurjava27@gmail.com",
       "mobileNo": "7387029671",
-      "status": "active"
+      "status": "active",
+	  "token": "keyurjava27"
     },
     {
       "id": 2,
@@ -20,7 +21,8 @@
       "gender": "male",
       "email": "denishjava26@gmail.com",
       "mobileNo": "7387029123",
-      "status": "active"
+      "status": "active",
+	  "token": "denishjava26"
     }
   ],
   "student": [

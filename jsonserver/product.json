@@ -1,4 +1,30 @@
-{	
+{
+	"user_details": [
+		{
+		  "id": 1,
+		  "userName": "keyur27",
+		  "password": "India@27",
+		  "name": "keyur",
+		  "userRole": "admin",
+		  "gender": "male",
+		  "email": "keyurjava27@gmail.com",
+		  "mobileNo": "7387029671",
+		  "status": "active",
+		  "token": "keyurjava27"
+		},
+		{
+		  "id": 2,
+		  "userName": "denish26",
+		  "password": "Bharat@27",
+		  "name": "denish",
+		  "userRole": "user",
+		  "gender": "male",
+		  "email": "denishjava26@gmail.com",
+		  "mobileNo": "7387029123",
+		  "status": "active",
+		  "token": "denishjava26"
+		}
+    ],	
 	"products" : [
 		{
 			"id": 10,
