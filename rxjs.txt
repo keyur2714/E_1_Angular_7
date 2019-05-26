@@ -1,0 +1,32 @@
+return this.httpClient.get(this.appURL).pipe(
+            map((userList : UserDetail[])=>{
+                for(let u of userList){
+                    if(u.userName === userName && u.password === password) {
+                        userDetail = u;
+                        break;
+                    }
+                }
+                return userDetail;   
+            })
+        );
+
+return this.httpClient.get(this.appURL).pipe(
+            filter((userList : UserDetail[])=>{
+                for(let u of userList){
+                    if(u.userName === userName && u.password === password) {
+                        return true;
+                    }
+                }                
+            }),
+            map(user=> user[0])            
+        );
+
+return this.httpClient.get(this.appURL).pipe(            
+            filter((userList : UserDetail[])=>{      
+                let user = userList.find(u => u.userName === userName && u.password === password);          
+                if(user) {
+                    return true;
+                }                
+            }),
+            map(user=> user[0])            
+        );

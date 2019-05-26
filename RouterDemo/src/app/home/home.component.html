@@ -1,3 +1,4 @@
-<p>
-  home works!
-</p>
+<div *ngIf="isLoggedIn">
+  <button class="btn btn-info" (click)="logout()">Logout</button>
+</div>
+Welcome {{loggedInUser.name}}

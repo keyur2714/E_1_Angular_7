@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UserDetail } from '../auth/model/user-detail';
 import { AuthenticationService } from '../auth/authentication.service';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -22,15 +23,18 @@ export class LoginComponent implements OnInit {
   login(frm : NgForm) : void {
     if(frm.valid){
       this.authenticationService.authenticate(this.user.userName,this.user.password).subscribe(
-        (user : UserDetail)=>{
-          alert(user);
-         if(user){
+        (response : any)=>{          
+          if(response && response.token){
+            sessionStorage.setItem("token",response.token);
+            sessionStorage.setItem("user",JSON.stringify(response));
             this.router.navigate([this.authenticationService.getSuccessUrl()]);
           }else{
-            this.errorMessage = 'Invalid Username or Password.';
+            this.errorMessage = "Invalid Username or Password";
           }
+        },(error)=>{
+          alert(error);          
         }
-      )
+      )      
     }
   }
 }

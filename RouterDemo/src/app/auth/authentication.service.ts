@@ -1,4 +1,4 @@
-import { Observable,of, interval, from } from 'rxjs';
+import { Observable,of, interval, from, throwError } from 'rxjs';
 import { UserDetail } from './model/user-detail';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -9,51 +9,44 @@ export class AuthenticationService {
 
     isLoggedIn : boolean = false;
     successUrl : string = 'home';
+    userRole : string = '';
 
     appURL : string = 'http://localhost:3000/user_details';
 
     constructor(private httpClient : HttpClient){}    
 
-    authenticate(userName : string, password : string) : Observable<UserDetail> {
-        return this.getUserByUsernameAndPassword(userName,password);        
+    authenticate(userName : string, password : string) : Observable<any> {
+        return this.getUserByUsernameAndPassword(userName,password);
     }
 
-
-
-
-    getUserByUsernameAndPassword(userName : string, password : string) : Observable<UserDetail> {
-        const source =  from([1, 2, 3, 4, 5]);
-        const example = source.pipe(map(val => val + 10));
-
-        const example1 = source.pipe(
-            map((val) =>{
-                val + 10
-                }
-            )
-        );
-
-        alert(userName+" ** "+password);
-        
-        let userDetail : UserDetail ;
-        const data =  this.httpClient.get(this.appURL).pipe(
-            map((userList : UserDetail[])=>{
-                for(let u of userList){
-                    if(u.userName === userName && u.password === password) {
-                        userDetail = u;
-                        break;
+    getUserByUsernameAndPassword(userName : string, password : string) : Observable<any> {        
+        return this.httpClient.get(this.appURL).pipe(                        
+            map((userList : UserDetail[]) => { 
+                    let user = userList.find(u => u.userName === userName && u.password === password);                          
+                    if(user === undefined){
+                        return this.error("Invalid username and password");
                     }
-                }
-                return userDetail;   
-            })
-        ).subscribe(data=>alert(data.userName));
-
-        return;    
+                    if(user) {
+                        this.isLoggedIn = true;
+                        this.userRole = user.userRole;
+                        return user;
+                    }                    
+            }
+            )            
+        );
     } 
 
     getIsLoggedIn() : boolean{
         return this.isLoggedIn;
     }
 
+    getUserRole() : string {
+        return this.userRole;
+    }
+
+    error(message) {
+        return throwError({ error: { message } });
+    }
     getSuccessUrl() : string {
         return this.successUrl;
     }
