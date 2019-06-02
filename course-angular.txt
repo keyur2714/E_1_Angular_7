@@ -1,15 +1,15 @@
 	Angular - 7
 
-	Setup
-	Git Rpository / Basic Git Commands
-	CLI Basic Commands
-	First Demo Application 
-	add bootstrap in demo application
-	basic idea of bootstrap
-	Flow of Execution with angular.json
-	create component
-	play with component
-	inbuilt dirctive / ngIf / ngFor / ngClass
+	Setup - Done
+	Git Rpository / Basic Git Commands - Done
+	CLI Basic Commands - Done
+	First Demo Application - Done 
+	add bootstrap in demo application - Done
+	basic idea of bootstrap - Done
+	Flow of Execution with angular.json - Done
+	create component - Done
+	play with component - Done
+	inbuilt directive / ngIf / ngFor / ngClass - 
 	create component without html
 	create model class
 	create Array of string/numbers
@@ -29,6 +29,7 @@
 	4. Forms
 		- Template Driven Forms 
 		- Reactive  Forms
+		- Form Validations
 	5. Observables & RX JS Basic Operators
 		- interval()
 		- of()
@@ -62,9 +63,9 @@
 		- custom Animations
 		- component Animations
 	18. Unit Testing with some Testcases
-		- Jasmin
+		- Jasmine API
 		- Karma
 	19. E2E Testing Undrestanding
 	20. Basic Usecase Project with Forms Module/Http Client Module/Router and Login authentication & authorization 
-	21. Deployments with some Local Server like Tomcat/WAMP
+	21. Deployments with some Local Server like Tomcat/WAMP/heroku Cloud
 			

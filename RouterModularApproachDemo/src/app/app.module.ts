@@ -17,32 +17,33 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthenticationService } from './auth/authentication.service';
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { PageNotFoundComponent } from './page-notfound.component';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    ProductListComponent,
+    HeaderComponent,    
     HomeComponent,
     AboutusComponent,
-    ContactusComponent,
-    ProductDetailComponent,
-    ProductEntryComponent,
+    ContactusComponent,    
     LoginComponent,
     LogoutComponent,
     PageNotFoundComponent
   ],
   imports: [
-    BrowserModule,    
-    AppRoutingModule,
+    BrowserModule,        
     FormsModule,
-    HttpClientModule
+    HttpClientModule,    
+    ProductModule,
+    AppRoutingModule    
   ],
-  providers: [
-    ProductService,
-    AuthGuardService,
+  providers: [        
     AuthenticationService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    console.log("App Module Loaded...");
+  }  
+}

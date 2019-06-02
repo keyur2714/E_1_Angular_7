@@ -1,0 +1,7 @@
+<div *ngIf="isLoggedIn">
+  <button class="btn btn-info" (click)="logout()">Logout</button>
+</div>
+<div *ngIf="loggedInUser">
+  Welcome {{loggedInUser.name}}
+</div>
+

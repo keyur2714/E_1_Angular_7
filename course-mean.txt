@@ -1,0 +1,17 @@
+	MEAN Stack
+`		1.Getting Started
+		2.What is MEAN?
+		3.Start with Angular
+		Angular - 7
+		- Entire Angular 7 Course as it is.	
+		4.Node JS & Express Server
+		5.Create API on Node JS and call with Angular
+		6.Handaling DATA with MongoDB and MySQL
+		7.Mongodb Instalation and Query
+		8.MySQL Instalation and Query
+		9.Adding Mongoose
+		10.Create CRUD Operation with Mongo/Mysql and Angular + Node
+		11.Authentication & Authorizarion 
+		12.Optimization Code
+		13.Deployment	
+ 

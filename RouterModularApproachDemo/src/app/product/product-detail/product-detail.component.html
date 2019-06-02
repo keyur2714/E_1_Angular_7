@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header bg-info">Product Detail of {{selectedProduct.desc}}</div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col center">
+        <img src="../../assets/images/products/{{selectedProduct.code}}.jpg" width="300px" height="200px"/>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            Rs - {{selectedProduct.unitPrice}}/-
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-info" type=button (click)="back()">Back</button>
+        </div>
+    </div>
+  </div>
+</div>
