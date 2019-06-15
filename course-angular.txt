@@ -9,35 +9,35 @@
 	Flow of Execution with angular.json - Done
 	create component - Done
 	play with component - Done
-	inbuilt directive / ngIf / ngFor / ngClass - 
-	create component without html
-	create model class
-	create Array of string/numbers
-	create Array of Objects
-	simple application of CRUD with in memory/array
+	inbuilt directive / ngIf / ngFor / ngClass - Done
+	create component without html - Done
+	create model class - Done
+	create Array of string/numbers - Done
+	create Array of Objects - Done
+	simple application of CRUD with in memory/array - Done
 	Data Binding
-		- one way
-		- two way
+		- one way - Done
+		- two way - Done
 	2. Component Communications
-		- @Input() : Parent to child / property
-		- @Output() : Child to Parent / Events
-		- @ViewChild() : Ref of Elements/coponent selectors
+		- @Input() : Parent to child / property - Done
+		- @Output() : Child to Parent / Events - Done
+		- @ViewChild() : Ref of Elements/coponent selectors -Done
 	3. Custom Directives
-		- Simple Directive
-		- Attribute Directive
-		- Structural Directive
+		- Simple Directive - Done
+		- Attribute Directive - Done
+		- Structural Directive - Done
 	4. Forms
-		- Template Driven Forms 
-		- Reactive  Forms
-		- Form Validations
+		- Template Driven Forms - Done
+		- Reactive  Forms - Done
+		- Form Validations - Done
 	5. Observables & RX JS Basic Operators
-		- interval()
-		- of()
-		- map()
-		- catchError()
-		- Subscription()
-		- Pipe()
-	6. DI (Dependency Injection) & Services
+		- interval() - Done
+		- of() - Done
+		- map() - Done
+		- catchError() - Done
+		- Subscription() - Done
+		- Pipe() - Done
+	6. DI (Dependency Injection) & Services - 
 	7. JSON Server - for create dummy web services
 		- How to use POST MAN
 	7. Http Client Module (CRUD) - 
@@ -46,11 +46,11 @@
 		- Put
 		- Delete
 	8. Session Storage/Local Storage & Cookie Understanding
-	9. JWT Introduction 
-	10. Interceptor in HttpClientModule with Login Authentication
-	11.Router - For Navigation	
-	12.Route Guards - for Authorizations 
-	13. Custom Modules and it's communications
+	9. JWT Introduction  - 
+	10. Interceptor in HttpClientModule with Login Authentication -
+	11.Router - For Navigation - Done	
+	12.Route Guards - for Authorizations - Done
+	13. Custom Modules and it's communications --
 	14. Lazy Loading & Eager Loading in Modules
 	15. Pipes - for Data Transform. it's like Filter
 		- Inbuilt Pipes

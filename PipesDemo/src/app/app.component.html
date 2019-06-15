@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<p>{{name | uppercase | welcome}}</p>
+<h2>{{name | lowercase | welcome}}</h2>
+<p>{{today}}</p>
+<p>{{today | date : 'MM-yyyy-dd hh:mm:ss a'}}</p>
+<h3>{{numberObservable | async}}</h3>
+<pre>
+  {{emp | json}}
+</pre>
+
+<p>{{mobileNo | mask : '#' : 7}}</p>
+
+<p [class]="'' | welcome">Hello</p>
