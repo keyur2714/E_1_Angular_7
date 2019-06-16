@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { AuthenticationService } from './auth/authentication.service';
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { PageNotFoundComponent } from './page-notfound.component';
 import { ProductModule } from './product/product.module';
+import { TokenInterceptorService } from './auth/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,12 @@ import { ProductModule } from './product/product.module';
     AppRoutingModule    
   ],
   providers: [        
-    AuthenticationService
+    AuthenticationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    }    
   ],
   bootstrap: [AppComponent]
 })
