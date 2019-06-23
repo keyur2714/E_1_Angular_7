@@ -37,22 +37,22 @@
 		- catchError() - Done
 		- Subscription() - Done
 		- Pipe() - Done
-	6. DI (Dependency Injection) & Services - 
+	6. DI (Dependency Injection) & Services - Done
 	7. JSON Server - for create dummy web services
 		- How to use POST MAN
-	7. Http Client Module (CRUD) - 
+	7. Http Client Module (CRUD) - Done
 		- Get
 		- Post
 		- Put
 		- Delete
-	8. Session Storage/Local Storage & Cookie Understanding
+	8. Session Storage/Local Storage & Cookie Understanding - Done
 	9. JWT Introduction  - 
-	10. Interceptor in HttpClientModule with Login Authentication -
+	10. Interceptor in HttpClientModule with Login Authentication - Done
 	11.Router - For Navigation - Done	
 	12.Route Guards - for Authorizations - Done
-	13. Custom Modules and it's communications --
-	14. Lazy Loading & Eager Loading in Modules
-	15. Pipes - for Data Transform. it's like Filter
+	13. Custom Modules and it's communications -- Done
+	14. Lazy Loading & Eager Loading in Modules -- Done
+	15. Pipes - for Data Transform. it's like Filter -- Done
 		- Inbuilt Pipes
 		- Custom Pipes
 	16. Angular Material
