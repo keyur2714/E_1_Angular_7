@@ -1,0 +1,55 @@
+-- Creation of object will be taken care by container
+
+			QuestionI
+			    askQuestion()
+	|			|		|
+AngularQuestion		SpringQuestion	BigDataQuestion	
+	*askQuestion(){}	*askQuestion(){}	*askQuestion(){}	
+	  	
+			
+
+ExamService{
+	//QuestionI an = new SpringQuestion(); //tightly couple
+	QuestionI an; //loosely couple
+	constructor(QuestionI an){
+		this.an=an;
+	}
+	startExam(){
+		an.askQuestion();
+	}		
+}
+
+conf.xml
+		
+
+client{
+	ExamService e=new ExamService();
+	e.startExam();
+}
+
+services manage buisiness logic
+--global service
+	-- used in Entire Module
+--local service	
+	-- used only specific to component
+
+
+
+	main_module.ts
+		declaration : [
+			A,
+			B,
+			C
+		],
+		providers: [
+			XYZService
+		]
+	
+	a.ts
+		constructor(private xyzService: XYZService){
+		
+		}
+	b.ts
+		constructor(private xyzService: XYZService){
+		
+		}

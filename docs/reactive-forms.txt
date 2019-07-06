@@ -1,0 +1,104 @@
+
+
+
+- Angular uses three fundamental block to 
+create angular reactive form 
+that are 
+FormControl, 
+FormGroup and 
+FormArray. 
+
+FormControl: 
+It is a class that is used to get and set values and 
+validation of a form control 
+such as <input> and <select> tag. 
+
+FormGroup: 
+It has the role to track value and 
+validity state of group of FormControl. 
+
+FormArray: 
+It tracks the value and validity 
+state of array of 
+FormControl, FormGroup or FormArray 
+instances. 
+
+Two way to create Forms
+Reactive Form: 
+Creating form using FormControl, FormGroup 
+and FormArray 
+is said to be reactive form. 
+They use ng module as ReactiveFormsModule. 
+
+Template-Driven Form: 
+Creating form using NgForm and NgModel, 
+is said to be template-driven form. 
+They use ng module as FormsModule. 
+
+-ReactiveFormsModule and FormsModule 
+both belong to @angular/forms library
+
+-To use reactive form in our angular application, 
+we need to configure ReactiveFormsModule 
+in our application module
+
+ex: 
+import { ReactiveFormsModule } from '@angular/forms';
+	
+imports: [     	
+ReactiveFormsModule
+  ]
+
+-FormControl is used to track values 
+and validation of a form control
+	name = new FormControl(); 
+in template
+	<input [formControl]="name"> 	
+
+--
+All the form control which are 
+the instances of FormControl class,
+ will be grouped using FormGroup class
+
+Ex:
+userForm = new FormGroup({
+	name: new FormControl('Keyur', Validators.maxLength(10)),
+	age: new FormControl(30, Validators.required),
+	city: new FormControl(),
+	country: new FormControl()
+ }); 
+in Html
+
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+ Name: <input formControlName="name"  placeholder="Enter Name">
+ Age: <input formControlName="age"  placeholder="Enter Age">
+City: <input formControlName="city"  placeholder="Enter City">
+Country: <input formControlName="country" placeholder="Enter Country">
+<button type="submit">Submit</button>
+	 </form> 
+
+onFormSubmit(): void {
+  console.log('Name:' + this.userForm.get('name').value);
+  console.log('Age:' + this.userForm.get('age').value);
+  console.log('City:' + this.userForm.get('city').value);
+  console.log('Country:' + this.userForm.get('country').value);
+} 
+-----------------Form Builder
+
+FormBuilder creates reactive form with minimum code using FormGroup, FormControl and FormArray. FormBuilder has following methods. 
+group(): Creates FormGroup. 
+control(): Creates FormControl. 
+array(): Creates FormArray. 
+Ex: 
+
+
+
+this.teamForm = this.formBuilder.group({
+   teamName: ['', Validators.required ],
+   teamManager: '',
+   teamDept: this.formBuilder.group(new Department()),
+   employees: this.formBuilder.array([]) 
+});
+
+
+

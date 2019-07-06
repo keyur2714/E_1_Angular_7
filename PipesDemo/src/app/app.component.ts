@@ -30,4 +30,7 @@ export class AppComponent implements OnInit{
     mobileNo : '7387029671'
   };
 
+  sum(num1 : number,num2 : number):number {
+    return num1 + num2;
+  }
 }

@@ -1,0 +1,16 @@
+
+	Forms in Angular
+	
+	import FormsModule from '@angular/forms';
+	
+	FormsModule -- package	
+	
+	1. Template Driven Forms
+		- FormsModule		
+	2. Reactive Forms
+		- ReactiveFormsModule
+
+
+	
+	
+	
