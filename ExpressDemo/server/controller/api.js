@@ -11,37 +11,33 @@ router.get('/', (req, res) => {
 });
 
 /* GET api listing. */
-router.get('/sayHello/:id', (req, res) => {
+router.get('/sayHello/:id/:city', (req, res) => {
     console.log("====Path Parameter====="+req.params.id);
     console.log("====Query Parameter====="+req.query.name);
+    console.log("====Query Parameter====="+req.query.age);
+    console.log("====Path Parameter====="+req.params.city);
     res.send('Hello Good Morning...!'+req.query.name+' '+req.params.id);
 });
 
 /* Get Products Data From Database*/
 router.get('/products', (req , res) => {
-    dbconfig.getConnection().connect(function(err) {
+    console.log("Connection Done Successfully.....!");        
+    dbconfig.getConnection().query("SELECT * FROM product_master", function (err, result, fields) {
         if (err) throw err;
-        console.log("Connection Done Successfully.....!");        
-        dbconfig.getConnection().query("SELECT * FROM product_master", function (err, result, fields) {
-            if (err) throw err;
-            console.log(result);
-            res.send(result);
-        });    
-    })
+        console.log(result);
+        res.send(result);
+    });        
 })
 
 /* Get Product By Id Data From Database*/
 router.get('/products/:id', (req , res) => {
     let productId = req.params.id;
-    dbconfig.getConnection().connect(function(err) {
+    console.log("Connection Done Successfully.....!");        
+    dbconfig.getConnection().query("SELECT * FROM product_master where product_id="+productId, function (err, result, fields) {
         if (err) throw err;
-        console.log("Connection Done Successfully.....!");        
-        dbconfig.getConnection().query("SELECT * FROM product_master where product_id="+productId, function (err, result, fields) {
-            if (err) throw err;
-            console.log(result);
-            res.send(result);
-        });    
-    })
+        console.log(result);
+        res.send(result);
+    });        
 })
 
 /* Get Products Data From WEB API/ JSON Server */
@@ -63,10 +59,6 @@ router.post('/products',(req , res) => {
     let product = req.body;
     console.log(product+" == "+product["product_id"]);    
     console.log(product+" === "+product.product_id);    
-
-    dbconfig.getConnection().connect(function(err) {
-        if (err) throw err;
-        console.log("Connection Done Successfully.....!");        
         let insertQuery = "insert into product_master (code,description,price) values('"+ product.code +"','"+ product.description +"',"+ product.price +")";
         console.log(insertQuery);
         dbconfig.getConnection().query(insertQuery, function (err, result, fields) {
@@ -74,7 +66,6 @@ router.post('/products',(req , res) => {
              console.log(result);
              res.send(result);
          });    
-    })    
 })
 
 module.exports = router;
