@@ -68,4 +68,33 @@ router.post('/products',(req , res) => {
          });    
 })
 
+/* Update Data via POST_MAN to NodeJS/MySQL*/
+router.put('/products/:id',(req , res) => {
+    console.log(req.body);
+    let product = req.body;
+    let productId = req.params.id;
+    console.log(product+" == "+product["product_id"]);    
+    console.log(product+" === "+product.product_id);    
+        let updateQuery = "update product_master set code = '"+ product.code +"',description = '"+ product.description +"',price ="+ product.price +" where product_id="+productId;
+        console.log(updateQuery);
+        dbconfig.getConnection().query(updateQuery, function (err, result, fields) {
+         if (err) throw err;
+             console.log(result);
+             res.send(result);
+         });    
+})
+
+/* Delete Data via POST_MAN to NodeJS/MySQL*/
+router.delete('/products/:id',(req , res) => {
+    console.log(req.body);
+    let productId = req.params.id;
+        let deleteQuery = "delete from product_master where product_id="+productId;
+        console.log(deleteQuery);
+        dbconfig.getConnection().query(deleteQuery, function (err, result, fields) {
+         if (err) throw err;
+             console.log(result);
+             res.send(result);
+         });    
+})
+
 module.exports = router;

@@ -16,12 +16,17 @@
         <th>Code</th>
         <th>Description</th>
         <th>Price</th>
+        <th>Action</th>
       </tr>
       <tr *ngFor="let product of productList">
         <td>{{product.product_id}}</td>
         <td>{{product.code}}</td>
         <td>{{product.description}}</td>
         <td>{{product.price}}</td>
+        <td>
+          <button class="btn btn-success m-1" (click)="edit(product.product_id)">Edit</button>
+          <button class="btn btn-danger m-1" (click)="delete(product.product_id)">Delete</button>
+        </td>
       </tr>
     </table>
   </div>

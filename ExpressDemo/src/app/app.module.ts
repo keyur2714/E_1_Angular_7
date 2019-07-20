@@ -7,13 +7,15 @@ import { ManageProductsComponent } from './manage-products/manage-products.compo
 import { ProductService } from './manage-products/product.service';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductEntryComponent } from './product-entry/product-entry.component';
+import { ProductUpdateComponent } from './product-update/product-update.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ManageProductsComponent,
-    ProductEntryComponent
+    ProductEntryComponent,
+    ProductUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -30,4 +30,21 @@ export class ManageProductsComponent implements OnInit {
     this.router.navigate(['addProduct']);
   }
 
+  edit(productId : number):void{
+    this.router.navigate(['editProduct',productId]);
+  }
+
+  delete(productId : number):void{
+    let confirmMsg = confirm("Are you sure want to delete Product?");
+    if(confirmMsg){
+      this.productService.deleteProductById(productId).subscribe(
+        (data)=>{
+          alert("Product Deleted successfully...");
+          this.getProductList();
+        }
+      )
+    }
+    
+  }
+
 }

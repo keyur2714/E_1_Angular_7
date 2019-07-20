@@ -18,4 +18,15 @@ export class ProductService {
         return this.httpClient.post<any>(this.appURL,product);
     }
 
+    getProductById(productId : number):Observable<Product>{
+        return this.httpClient.get<Product>(this.appURL+"/"+productId);
+    }
+
+    updateProduct(product : Product):Observable<any>{
+        return this.httpClient.put<any>(this.appURL+"/"+product.product_id,product);
+    }
+
+    deleteProductById(productId : number):Observable<any>{
+        return this.httpClient.delete<any>(this.appURL+"/"+productId);
+    }
 }
