@@ -1,57 +1,45 @@
-import { Component, OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentInit, AfterContentChecked, AfterViewChecked } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../manage-products/product.service';
 import { Product } from '../manage-products/product.mode';
 import { Location } from '@angular/common';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-product-update',
   templateUrl: './product-update.component.html',
   styleUrls: ['./product-update.component.css']
 })
-export class ProductUpdateComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class ProductUpdateComponent implements OnInit {
 
-  productUpdateForm : FormGroup;
   message : string = '';
   selectedProductId : number = 0;
   selectedProduct : Product = new Product();
+  isLoaded : boolean = false;
 
-  constructor(private activatedRoute : ActivatedRoute,private productService : ProductService,private location:Location,private formBuilder : FormBuilder) { }
+  constructor(private activatedRoute : ActivatedRoute,private productService : ProductService,private location:Location) { }
 
   ngOnInit() {
-    this.createProductUpdateForm();
-    this.activatedRoute.params.subscribe(
-      (params)=>{
-        this.selectedProductId = params.id;
-        this.productService.getProductById(this.selectedProductId).subscribe(
-          (product : Product)=>{
-            this.selectedProduct = product;                
-          }
-        )
+    this.selectedProductId = this.activatedRoute.snapshot.params.id;
+    this.productService.getProductById(this.selectedProductId).subscribe(
+      (product : Product)=>{        
+        this.selectedProduct = product[0];          
+        this.isLoaded = true;
       }
-    )
+    );
+    // this.activatedRoute.params.subscribe(
+    //   (params)=>{
+    //     this.selectedProductId = params.id;
+    //     this.productService.getProductById(this.selectedProductId).subscribe(
+    //       (product : Product)=>{        
+    //         this.selectedProduct = product[0];          
+    //         this.isLoaded = true;
+    //       }
+    //     );
+    //   }
+    // )        
   }
-
-  ngAfterViewInit() {
-    alert(this.selectedProduct.code);    
-  }
-
-  ngAfterContentInit(){
-    alert(this.selectedProduct.code);
-    this.productUpdateForm.setValue({"code": this.selectedProduct.code,"description": this.selectedProduct.description, "price": this.selectedProduct.price});
-  }
-
-  createProductUpdateForm():void {    
-    this.productUpdateForm = this.formBuilder.group({
-      code : this.formBuilder.control(''),
-      description : this.formBuilder.control(''),
-      price : this.formBuilder.control('')
-    });
-  }
-
   update(): void {
-    this.selectedProduct = this.productUpdateForm.value;
+    console.log(this.selectedProduct.product_id+" "+this.selectedProduct.code+" "+this.selectedProduct.description+" "+this.selectedProduct.price);
     this.productService.updateProduct(this.selectedProduct).subscribe(
       (data)=>{
         console.log(data);
