@@ -69,40 +69,52 @@ router.post('/products',(req , res) => {
 
 /* Update Data via POST_MAN to NodeJS/MySQL*/
 router.put('/products/:id',(req , res) => {
-    console.log(req.body);
-    let product = req.body;
-    let productId = req.params.id;
+    console.log(req.body.code+" *** ");
+    //let product = req.body;
+    let product = {
+        product_id : req.body.product_id,
+        code : req.body.code,
+        description : req.body.description,
+        price : req.body.price
+    };
+    let productId = parseInt(req.params.id);
     console.log(product+" == "+product["product_id"]);    
     console.log(product+" === "+product.product_id);    
         
-    MongoClient.connect(url,{ useNewUrlParser: true }, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db("mongodemo");
-        var myquery = { product_id: productId };
-        var newvalues = { $set: {
-            "product_id":4,
-            "code":"IDLI",
-            "description":"Idli",
-            "price":35
-        }};
-        console.log(newvalues);
-        dbo.collection("product").updateOne
-        (myquery, newvalues,{ upsert: true }, function(err, result) {
-          if (err) throw err;
-          console.log("1 product document updated");
-          db.close();
-          return res.send(result);
+        MongoClient.connect(url,{ useNewUrlParser: true }, function(err, db) {
+            if (err) throw err;
+            var dbo = db.db("mongodemo");
+            var myquery = { product_id: productId };
+            var newvalues = { $set: product};
+            console.log(newvalues);
+            dbo.collection("product").updateOne
+            (myquery, newvalues,{ upsert: true }, function(err, result) {
+            if (err) throw err;
+            console.log("1 product document updated");
+            db.close();
+            return res.send(result);
+            });
         });
-      }); 
+    })
 
-    /* Delete Data via POST_MAN to NodeJS/MySQL*/
-    router.put('/prod/:id',(req , res) => {
+    /* Delete Data via POST_MAN to NodeJS/MongoDb*/
+    router.delete('/products/:id',(req , res) => {
         console.log("====================");
-        let productId = req.params.id;
+        let productId = parseInt(req.params.id);
         console.log(productId);
-            
-    });
-})
-
-
+        
+        MongoClient.connect(url,{ useNewUrlParser: true }, function(err, db) {
+            var dbo = db.db("mongodemo");
+            if (err) throw err;
+            var myquery = { "product_id": productId };
+           
+            dbo.collection("product").deleteOne(myquery)
+            .then(result => {
+                    console.log(`Deleted ${result.deletedCount} item.`);
+                    return res.json(result);                
+                }                
+            )
+            .catch(err => console.error(`Delete failed with error: ${err}`))           
+          });        
+    })
 module.exports = router;

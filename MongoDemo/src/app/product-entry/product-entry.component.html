@@ -1,0 +1,25 @@
+<div class="row" *ngIf="message !== ''">
+  <div class="col alert alert-success">{{message}}</div>
+</div>
+<form [formGroup]="productEntryForm" (ngSubmit)="save()">
+  <div class="row form-group">
+      <div class="col-sm-3">Product Id</div>
+      <div class="col-sm-5"><input type=text name=product_id class="form-control" formControlName="product_id" /></div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-3">Code</div>
+    <div class="col-sm-5"><input type=text name=code class="form-control" formControlName="code"/></div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-3">Description</div>
+      <div class="col-sm-5"><input type=text name=description class="form-control" formControlName="description"/></div>
+  </div>
+  <div class="row form-group">
+        <div class="col-sm-3">Price</div>
+        <div class="col-sm-5"><input type=text name=price class="form-control" formControlName="price"/></div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-3"><button type=submit class="btn btn-info">Save</button></div>      
+      <div class="col-sm-3"><button type=button class="btn btn-secondary" (click)="back()">Back</button></div>      
+  </div>
+</form>

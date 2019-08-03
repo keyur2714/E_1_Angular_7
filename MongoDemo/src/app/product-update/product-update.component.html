@@ -1,0 +1,26 @@
+<div *ngIf="isLoaded === false">
+  <h2>loading...</h2>
+</div>
+<div *ngIf="isLoaded">  
+  <div class="row" *ngIf="message !== ''">
+    <div class="col alert alert-success">{{message}}</div>
+  </div>
+  <form #f="ngForm" (ngSubmit)="update(f)">    
+    <div class="row form-group">
+      <div class="col-sm-3">Code</div>
+      <div class="col-sm-5"><input type=text name=code class="form-control" [(ngModel)]="selectedProduct.code" /></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-3">Description</div>
+        <div class="col-sm-5"><input type=text name=description class="form-control" [(ngModel)]="selectedProduct.description"/></div>
+    </div>
+    <div class="row form-group">
+          <div class="col-sm-3">Price</div>
+          <div class="col-sm-5"><input type=text name=price class="form-control" [(ngModel)]="selectedProduct.price"/></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-3"><button type=submit class="btn btn-info">Update</button></div>      
+        <div class="col-sm-3"><button type=button class="btn btn-secondary" (click)="back()">Back</button></div>      
+    </div>
+  </form>
+</div>
